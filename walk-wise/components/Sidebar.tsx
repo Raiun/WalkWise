@@ -200,7 +200,12 @@ export default function Sidebar() {
                   </ListItemButton>
                 </ListItem>
                 <ListItem>
-                  <ListItemButton>Add New User</ListItemButton>
+                  <ListItemButton
+                    role="menuitem"
+                    component="a"
+                    href="https://github.com/Raiun"
+                  >
+                    Add New User</ListItemButton>
                 </ListItem>
                 <ListItem>
                   <ListItemButton>Roles & Permissions</ListItemButton>

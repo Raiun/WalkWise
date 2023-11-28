@@ -64,7 +64,7 @@ export default function Home() {
               <Link
                 underline="none"
                 color="neutral"
-                href="#some-link"
+                href="#Home"
                 aria-label="Home"
               >
                 <HomeRoundedIcon />
@@ -72,7 +72,7 @@ export default function Home() {
               <Link
                 underline="hover"
                 color="neutral"
-                href="#some-link"
+                href="#Dashboard"
                 fontSize={12}
                 fontWeight={500}
               >
