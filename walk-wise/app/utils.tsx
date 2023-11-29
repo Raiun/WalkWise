@@ -5,22 +5,22 @@ export function openSidebar() {
     }
   }
   
-  export function closeSidebar() {
+export function closeSidebar() {
     if (typeof document !== 'undefined') {
-      document.documentElement.style.removeProperty('--SideNavigation-slideIn');
-      document.body.style.removeProperty('overflow');
+        document.documentElement.style.removeProperty('--SideNavigation-slideIn');
+        document.body.style.removeProperty('overflow');
     }
-  }
+}
   
-  export function toggleSidebar() {
+export function toggleSidebar() {
     if (typeof window !== 'undefined' && typeof document !== 'undefined') {
-      const slideIn = window
+        const slideIn = window
         .getComputedStyle(document.documentElement)
         .getPropertyValue('--SideNavigation-slideIn');
-      if (slideIn) {
+        if (slideIn) {
         closeSidebar();
-      } else {
+        } else {
         openSidebar();
-      }
+        }
     }
-  }
+}

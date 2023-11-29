@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from 'react';
+import Link from 'next/link';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
@@ -152,6 +153,7 @@ export default function Sidebar() {
             <ListItemButton>
               <HomeRoundedIcon />
               <ListItemContent>
+                <Link href="\"></Link>
                 <Typography level="title-sm">Home</Typography>
               </ListItemContent>
             </ListItemButton>
@@ -160,16 +162,22 @@ export default function Sidebar() {
           <ListItem>
             <ListItemButton>
               <DashboardRoundedIcon />
-              <ListItemContent>
+              <ListItemContent
+                component="a"
+                href="\dashboard"
+              >
                 <Typography level="title-sm">Dashboard</Typography>
               </ListItemContent>
             </ListItemButton>
           </ListItem>
 
           <ListItem>
-            <ListItemButton selected>
+            <ListItemButton>
               <ShoppingCartRoundedIcon />
-              <ListItemContent>
+              <ListItemContent
+                component="a"
+                href="\orders"
+              >
                 <Typography level="title-sm">History</Typography>
               </ListItemContent>
             </ListItemButton>
@@ -194,7 +202,7 @@ export default function Sidebar() {
                   <ListItemButton
                     role="menuitem"
                     component="a"
-                    href="/joy-ui/getting-started/templates/profile-dashboard/"
+                    href="\profile"
                   >
                     My Profile
                   </ListItemButton>
@@ -203,7 +211,7 @@ export default function Sidebar() {
                   <ListItemButton
                     role="menuitem"
                     component="a"
-                    href="https://github.com/Raiun"
+                    href="\addUser"
                   >
                     Add New User</ListItemButton>
                 </ListItem>

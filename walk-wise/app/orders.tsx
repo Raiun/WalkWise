@@ -14,22 +14,11 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
-import Sidebar from "../components/Sidebar";
-import OrderTable from "../components/OrderTable";
-import OrderList from "../components/OrderList";
+import Sidebar from "../../components/Sidebar";
+import OrderTable from "../../components/OrderTable";
+import OrderList from "../../components/OrderList";
 
-export default function Home() {
-  //const status = useScript("https://unpkg.com/feather-icons");
-
-  /*useEnhancedEffect(() => {
-    // Feather icon setup: https://github.com/feathericons/feather#4-replace
-    // @ts-ignore
-    if (typeof feather !== "undefined") {
-      // @ts-ignore
-      feather.replace();
-    }
-  //}, [status]);*/
-
+export default function Orders() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -83,6 +72,31 @@ export default function Home() {
               </Typography>
             </Breadcrumbs>
           </Box>
+          <Box
+                sx={{
+                  display: "flex",
+                  mb: 1,
+                  gap: 1,
+                  flexDirection: { xs: "column", sm: "row" },
+                  alignItems: { xs: "start", sm: "center" },
+                  flexWrap: "wrap",
+                  justifyContent: "space-between",
+                }}
+              >
+              
+                <Typography level="h2" component="h1">
+                  History
+                </Typography>
+                <Button
+                  color="primary"
+                  startDecorator={<DownloadRoundedIcon />}
+                  size="sm"
+                >
+                  Download PDF
+                </Button>
+              </Box>
+              <OrderTable />
+              <OrderList />
         </Box>
       </Box>
     </CssVarsProvider>
