@@ -14,22 +14,11 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
-import Sidebar from "../components/Sidebar";
-import OrderTable from "../components/OrderTable";
-import OrderList from "../components/OrderList";
+import Sidebar from "../../components/Sidebar";
+import OrderTable from "../../components/OrderTable";
+import OrderList from "../../components/OrderList";
 
-export default function Home() {
-  //const status = useScript("https://unpkg.com/feather-icons");
-
-  /*useEnhancedEffect(() => {
-    // Feather icon setup: https://github.com/feathericons/feather#4-replace
-    // @ts-ignore
-    if (typeof feather !== "undefined") {
-      // @ts-ignore
-      feather.replace();
-    }
-  //}, [status]);*/
-
+export default function orders() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -69,6 +58,21 @@ export default function Home() {
               >
                 <HomeRoundedIcon />
               </Link>
+              <Link
+                underline="hover"
+                color="neutral"
+                href="#Dashboard"
+                fontSize={12}
+                fontWeight={500}
+              >
+                Dashboard
+              </Link>
+              <Typography color="primary" fontWeight={500} fontSize={12}>
+                Users
+              </Typography>
+              <Typography color="primary" fontWeight={500} fontSize={12}>
+                Profile
+              </Typography>
             </Breadcrumbs>
           </Box>
         </Box>

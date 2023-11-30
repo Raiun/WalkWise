@@ -41,7 +41,7 @@ const rows = [
   {
     id: 'INV-1234',
     date: 'Feb 3, 2023',
-    status: 'Refunded',
+    status: "Unrecognized",
     customer: {
       initial: 'O',
       name: 'Olivia Ryhe',
@@ -51,7 +51,7 @@ const rows = [
   {
     id: 'INV-1233',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'S',
       name: 'Steve Hampton',
@@ -61,7 +61,7 @@ const rows = [
   {
     id: 'INV-1232',
     date: 'Feb 3, 2023',
-    status: 'Refunded',
+    status: "Unrecognized",
     customer: {
       initial: 'C',
       name: 'Ciaran Murray',
@@ -71,7 +71,7 @@ const rows = [
   {
     id: 'INV-1231',
     date: 'Feb 3, 2023',
-    status: 'Refunded',
+    status: "Unrecognized",
     customer: {
       initial: 'M',
       name: 'Maria Macdonald',
@@ -81,7 +81,7 @@ const rows = [
   {
     id: 'INV-1230',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'C',
       name: 'Charles Fulton',
@@ -91,7 +91,7 @@ const rows = [
   {
     id: 'INV-1229',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'J',
       name: 'Jay Hooper',
@@ -101,7 +101,7 @@ const rows = [
   {
     id: 'INV-1228',
     date: 'Feb 3, 2023',
-    status: 'Refunded',
+    status: "Unrecognized",
     customer: {
       initial: 'K',
       name: 'Krystal Stevens',
@@ -111,7 +111,7 @@ const rows = [
   {
     id: 'INV-1227',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'S',
       name: 'Sachin Flynn',
@@ -121,7 +121,7 @@ const rows = [
   {
     id: 'INV-1226',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'B',
       name: 'Bradley Rosales',
@@ -131,7 +131,7 @@ const rows = [
   {
     id: 'INV-1234',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'O',
       name: 'Olivia Ryhe',
@@ -141,7 +141,7 @@ const rows = [
   {
     id: 'INV-1233',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'S',
       name: 'Steve Hampton',
@@ -151,7 +151,7 @@ const rows = [
   {
     id: 'INV-1232',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'C',
       name: 'Ciaran Murray',
@@ -161,7 +161,7 @@ const rows = [
   {
     id: 'INV-1231',
     date: 'Feb 3, 2023',
-    status: 'Refunded',
+    status: "Unrecognized",
     customer: {
       initial: 'M',
       name: 'Maria Macdonald',
@@ -171,7 +171,7 @@ const rows = [
   {
     id: 'INV-1230',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'C',
       name: 'Charles Fulton',
@@ -181,7 +181,7 @@ const rows = [
   {
     id: 'INV-1229',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'J',
       name: 'Jay Hooper',
@@ -191,7 +191,7 @@ const rows = [
   {
     id: 'INV-1228',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'K',
       name: 'Krystal Stevens',
@@ -201,7 +201,7 @@ const rows = [
   {
     id: 'INV-1227',
     date: 'Feb 3, 2023',
-    status: 'Paid',
+    status: "Unlocked",
     customer: {
       initial: 'S',
       name: 'Sachin Flynn',
@@ -211,7 +211,7 @@ const rows = [
   {
     id: 'INV-1226',
     date: 'Feb 3, 2023',
-    status: 'Cancelled',
+    status: "Rejected",
     customer: {
       initial: 'B',
       name: 'Bradley Rosales',
@@ -293,10 +293,10 @@ export default function OrderTable() {
           placeholder="Filter by status"
           slotProps={{ button: { sx: { whiteSpace: 'nowrap' } } }}
         >
-          <Option value="paid">Paid</Option>
+          <Option value="unlocked">Unlocked</Option>
           <Option value="pending">Pending</Option>
-          <Option value="refunded">Refunded</Option>
-          <Option value="cancelled">Cancelled</Option>
+          <Option value="unrecognized">Unrecognized</Option>
+          <Option value="rejected">Rejected</Option>
         </Select>
       </FormControl>
       <FormControl size="sm">
@@ -483,16 +483,16 @@ export default function OrderTable() {
                     size="sm"
                     startDecorator={
                       {
-                        Paid: <CheckRoundedIcon />,
-                        Refunded: <AutorenewRoundedIcon />,
-                        Cancelled: <BlockIcon />,
+                        Unlocked: <CheckRoundedIcon />,
+                        Unrecognized: <AutorenewRoundedIcon />,
+                        Rejected: <BlockIcon />,
                       }[row.status]
                     }
                     color={
                       {
-                        Paid: 'success',
-                        Refunded: 'neutral',
-                        Cancelled: 'danger',
+                        Unlocked: 'success',
+                        Unrecognized: 'neutral',
+                        Rejected: 'danger',
                       }[row.status] as ColorPaletteProp
                     }
                   >

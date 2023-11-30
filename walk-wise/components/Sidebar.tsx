@@ -22,7 +22,7 @@ import Stack from '@mui/joy/Stack';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import HistoryIcon from '@mui/icons-material/History';
 import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
 import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
 import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
@@ -152,8 +152,10 @@ export default function Sidebar() {
           <ListItem>
             <ListItemButton>
               <HomeRoundedIcon />
-              <ListItemContent>
-                <Link href="\"></Link>
+              <ListItemContent
+                component="a"
+                href="\"
+              >
                 <Typography level="title-sm">Home</Typography>
               </ListItemContent>
             </ListItemButton>
@@ -173,7 +175,7 @@ export default function Sidebar() {
 
           <ListItem>
             <ListItemButton>
-              <ShoppingCartRoundedIcon />
+              <HistoryIcon />
               <ListItemContent
                 component="a"
                 href="\orders"
@@ -202,7 +204,7 @@ export default function Sidebar() {
                   <ListItemButton
                     role="menuitem"
                     component="a"
-                    href="\profile"
+                    href="\users?profile"
                   >
                     My Profile
                   </ListItemButton>
@@ -211,11 +213,15 @@ export default function Sidebar() {
                   <ListItemButton
                     role="menuitem"
                     component="a"
-                    href="\addUser"
+                    href="\users?newUser"
                   >
                     Add New User</ListItemButton>
                 </ListItem>
-                <ListItem>
+                <ListItem
+                  role="menuitem"
+                  component="a"
+                  href="\users?roles"
+                >
                   <ListItemButton>Roles & Permissions</ListItemButton>
                 </ListItem>
               </List>

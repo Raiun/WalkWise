@@ -14,11 +14,11 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
-import Sidebar from "../components/Sidebar";
-import OrderTable from "../components/OrderTable";
-import OrderList from "../components/OrderList";
+import Sidebar from "../../components/Sidebar";
+import OrderTable from "../../components/OrderTable";
+import OrderList from "../../components/OrderList";
 
-export default function Orders() {
+export default function orders() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
