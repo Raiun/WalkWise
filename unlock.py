@@ -1,9 +1,15 @@
 import asyncio
+import os
+from dotenv import load_dotenv
 from smartrent import async_login
+
+load_dotenv()
+email = os.getenv("EMAIL")
+password = os.getenv("EMAIL_PASSWORD")
 
 async def main():
     try:
-        api = await async_login('<EMAIL>', '<PASSWORD>')
+        api = await async_login(email, password)
         locks = api.get_locks()
         first_lock = locks[0]
 
