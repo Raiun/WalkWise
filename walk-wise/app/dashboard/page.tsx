@@ -1,11 +1,9 @@
-"use client"
 import Image from "next/image"
 //import styles from "./page.module.css"
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
-import Card from "@mui/joy/Card";
 import Button from "@mui/joy/Button";
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Link from "@mui/joy/Link";
@@ -16,44 +14,11 @@ import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
-import Sidebar from "../components/Sidebar";
-import OrderTable from "../components/OrderTable";
-import OrderList from "../components/OrderList";
+import Sidebar from "../../components/Sidebar";
+import OrderTable from "../../components/OrderTable";
+import OrderList from "../../components/OrderList";
 
-import animation from "../public/walking.gif"
-
-export default function Home() {
-  //const status = useScript("https://unpkg.com/feather-icons");
-
-  /*useEnhancedEffect(() => {
-    // Feather icon setup: https://github.com/feathericons/feather#4-replace
-    // @ts-ignore
-    if (typeof feather !== "undefined") {
-      // @ts-ignore
-      feather.replace();
-    }
-  //}, [status]);*/
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://127.0.0.1:8000/");
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-
-    return () => {
-      // Cleanup logic here (if needed)
-    };
-  }, []);
-
+export default function dashboard() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -93,15 +58,17 @@ export default function Home() {
               >
                 <HomeRoundedIcon />
               </Link>
+              <Link
+                underline="hover"
+                color="neutral"
+                href="#Dashboard"
+                fontSize={12}
+                fontWeight={500}
+              >
+                Dashboard
+              </Link>
             </Breadcrumbs>
           </Box>
-          <Card>
-            <h1>Welcome to WalkWise!</h1>
-            <p>WalkWise utilizes Arduino streamed IMU data to recognize and identify users by
-              their stride patterns to unlock smart locked doors automatically.</p>
-            <img style={{margin: "auto", width: "500px", height: "400px"}} src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/72f02440701089.57894e458a58b.gif"></img>
-            <p>[Cool: {data["cool"]}]</p>
-          </Card>
         </Box>
       </Box>
     </CssVarsProvider>
