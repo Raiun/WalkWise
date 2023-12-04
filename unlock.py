@@ -8,15 +8,6 @@ load_dotenv()
 email = os.getenv("EMAIL")
 password = os.getenv("EMAIL_PASSWORD")
 
-parser = argparse.ArgumentParser(
-                    prog="Unlock.py",
-                    description="Unlock the door for recognized users")
-
-parser.add_argument("user", help="User passed from WalkWise neural network")
-
-args = parser.parse_args()
-print(args.user)
-
 recognized_users = ["Test", "Test2"]
 
 async def main():
@@ -33,4 +24,14 @@ async def main():
     except Exception as e:
         print(f"Error: {e}")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+                    prog="Unlock.py",
+                    description="Unlock the door for recognized users")
+
+    parser.add_argument("user", help="User passed from WalkWise neural network")
+
+    args = parser.parse_args()
+    print(args.user)
+    
+    asyncio.run(main())
