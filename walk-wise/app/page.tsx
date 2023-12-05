@@ -23,25 +23,15 @@ import OrderList from "../components/OrderList";
 import animation from "../public/walking.gif"
 
 export default function Home() {
-  //const status = useScript("https://unpkg.com/feather-icons");
-
-  /*useEnhancedEffect(() => {
-    // Feather icon setup: https://github.com/feathericons/feather#4-replace
-    // @ts-ignore
-    if (typeof feather !== "undefined") {
-      // @ts-ignore
-      feather.replace();
-    }
-  //}, [status]);*/
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/");
+        const response = await fetch("http://127.0.0.1:8000/authorizedUsers");
         const jsonData = await response.json();
-        setData(jsonData);
+        console.log(jsonData);
+        setData(JSON.parse(jsonData));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -53,6 +43,11 @@ export default function Home() {
       // Cleanup logic here (if needed)
     };
   }, []);
+
+  if (data) {
+    console.log(data[0]);
+    console.log(data[0]["name"]);
+  }
 
   return (
     <CssVarsProvider disableTransitionOnChange>
@@ -100,7 +95,7 @@ export default function Home() {
             <p>WalkWise utilizes Arduino streamed IMU data to recognize and identify users by
               their stride patterns to unlock smart locked doors automatically.</p>
             <img style={{margin: "auto", width: "500px", height: "400px"}} src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/72f02440701089.57894e458a58b.gif"></img>
-            <p>[Cool: {data["cool"]}]</p>
+            {data[0] ? <p>{data[0]["name"]}</p> : <p></p>}
           </Card>
         </Box>
       </Box>

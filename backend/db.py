@@ -18,4 +18,5 @@ except Exception as e:
     print(f"Error: {e}")
 
 db = client["WalkWise"]
-collection = db["Unlocks"]
+unlocks_table = db["Unlocks"]
+authorized_table = db["AuthorizedUsers"]

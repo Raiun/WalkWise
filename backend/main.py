@@ -1,6 +1,7 @@
 import datetime
+import json
 from fastapi import FastAPI
-from db import test, collection
+from db import test, unlocks_table, authorized_table
 from bson.json_util import dumps
 from fastapi.encoders import jsonable_encoder
 from fastapi.middleware.cors import CORSMiddleware
@@ -20,6 +21,11 @@ def root():
     print(test)
     return {"cool": "guy"}
 
+@app.get("/authorizedUsers")
+def root():
+    cursor = authorized_table.find({})
+    return dumps(cursor)
+
 @app.put("/addUnlock")
 def addUnlock():
     current_timestamp = datetime.datetime.now()
@@ -28,7 +34,7 @@ def addUnlock():
     print(data)
     print(put_data)
     try:
-        #collection.insert_one()
+        #unlocks_table.insert_one()
         return 1
     except Exception as e:
         print(e)
