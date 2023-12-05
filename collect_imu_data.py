@@ -5,7 +5,7 @@ import asyncio
 import struct
 from bleak import BleakScanner, BleakClient
 
-arduinoName = "Nate's Nano 33 IoT"
+arduinoName = "Nate's Nano"
 arduinoUUID = "722253D8-3943-7814-D96F-57266EF0DF11"
 axID = "00002101-0000-1000-8000-00805f9b34fb"
 ayID = "00002102-0000-1000-8000-00805f9b34fb"
@@ -13,9 +13,6 @@ azID = "00002103-0000-1000-8000-00805f9b34fb"
 gxID = "00002744-0000-1000-8000-00805f9b34fb"
 gyID = "00002745-0000-1000-8000-00805f9b34fb"
 gzID = "00002746-0000-1000-8000-00805f9b34fb"
-
-collectionTime = 10
-fileName = "hersh_10.txt"
 
 ax_data = []
 ay_data = []
@@ -48,9 +45,9 @@ def gy_callback(handle, data):
 def gz_callback(handle, data):
     [gz] = struct.unpack('f',data)
     gz_data.append(gz)
-   
-async def main():
-    async with BleakClient(arduinoUUID) as client:
+
+async def collect_data(deviceName, fileName, collectionTime):
+    async with BleakClient(await BleakScanner.find_device_by_name(deviceName)) as client:
         print(client.is_connected)
         await client.start_notify(axID, ax_callback)
         await client.start_notify(ayID, ay_callback)
@@ -65,7 +62,7 @@ async def main():
         await client.stop_notify(gxID)
         await client.stop_notify(gyID)
         await client.stop_notify(gzID)
-        with open(fileName, 'a') as f:
+        with open(fileName, 'w') as f:
             for i in range(min(len(ax_data), len(ay_data), len(az_data), len(gx_data), len(gy_data), len(gz_data))):
                 ax = ax_data[i]
                 ay = ay_data[i]
@@ -76,5 +73,9 @@ async def main():
                 line = str(ax) + "," + str(ay) + "," + str(az) + "," + str(gx) + "," + str(gy) + "," + str(gz)
                 f.write(line)
                 f.write('\n')
+        f.close()
 
-asyncio.run(main())
+# async def main():
+#     await collect_data(arduinoName,"hersh_10.txt",10)
+
+# asyncio.run(main())
