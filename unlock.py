@@ -26,7 +26,6 @@ async def main():
         # Request failed
         print("Error:", response.status_code)
         print("Response content:", response.text)
-
     try:
         api = await async_login(email, password)
         locks = api.get_locks()
