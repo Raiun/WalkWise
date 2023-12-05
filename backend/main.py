@@ -26,19 +26,33 @@ def root():
     cursor = authorized_table.find({})
     return dumps(cursor)
 
-@app.put("/addUnlock")
-def addUnlock():
+@app.put("/addUnlock/{name}/{status}")
+def addUnlock(name: str, status: str):
     current_timestamp = datetime.datetime.now()
-    data = {"name": "", "date": current_timestamp, "status": ""}
+    str_timestamp = current_timestamp.strftime("%m/%d/%Y T:%H:%M:%S")
+    data = {"name": name, "date": str_timestamp, "status": status}
     put_data = jsonable_encoder(data)
-    print(data)
-    print(put_data)
     try:
-        #unlocks_table.insert_one()
-        return 1
+        unlocks_table.insert_one(data)
+        return put_data
     except Exception as e:
         print(e)
-    return -1
+    return e
+
+@app.put("/updateAuthorizations/{name}")
+def updateAuthorizations(name: str):
+    try:
+        user = authorized_table.find_one({"name": name})
+        current_authorization = user["permitted"]
+        result = authorized_table.update_one({"name": name},
+            {'$set': {"permitted": not current_authorization}})
+        if result.modified_count > 0:
+            return "Sucessfully updated permission"
+        else:
+            return "Failed to update authorization"
+    except Exception as e:
+        print(e)
+    return e
 
 '''
 @app.get("/all")

@@ -18,15 +18,16 @@ async def main():
         # Request was successful
         data = response.json()  # Assuming the response contains JSON data
         data = json.loads(data)
-        print("Response data:", data[0])
-        for i in range(len(data[0]) - 1):
-            valid_users.append(data[0]["name"])
+        print("Response data:", data)
+        for i in range(len(data)):
+            if data[i]["permitted"] == True:
+                valid_users.append(data[i]["name"])
         print(f"Valid Users: {valid_users}")
     else:
         # Request failed
         print("Error:", response.status_code)
         print("Response content:", response.text)
-    try:
+    '''try:
         api = await async_login(email, password)
         locks = api.get_locks()
         first_lock = locks[0]
@@ -37,7 +38,7 @@ async def main():
             print("Unrecognized User! DOOR WILL LOCK!")
             await first_lock.async_set_locked(True)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}")'''
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
