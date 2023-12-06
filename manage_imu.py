@@ -14,9 +14,9 @@ collectionTime = 7
 async def main():
     await imu.collect_data(arduinoName,newData,collectionTime)
     
-    model_hersh = torch.load("1D_CNN_model_hersh.pth")
-    model_ryan = torch.load("1D_CNN_model_ryan.pth")
-    model_nate = torch.load("1D_CNN_model_nate.pth")
+    model_hersh = torch.load("1D_CNN_model_hersh_2.pth")
+    model_ryan = torch.load("1D_CNN_model_ryan_2.pth")
+    model_nate = torch.load("1D_CNN_model_nate_2.pth")
     name_dict = {0: "Hersh Gupta", 1: "Nate Webster", 2: "Ryan Man"}
     model_hersh.eval()  # Set the model to evaluation mode
     model_ryan.eval()  # Set the model to evaluation mode
