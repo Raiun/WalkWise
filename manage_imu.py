@@ -8,8 +8,8 @@ import numpy as np
 import unlock
 
 arduinoName = "Nate's Nano"
-newData = "new_data.txt"
-collectionTime = 10
+newData = "nate_data_10.txt"
+collectionTime = 7
 
 async def main():
     await imu.collect_data(arduinoName,newData,collectionTime)
@@ -24,9 +24,9 @@ async def main():
     predictedName = name_dict[prediction]
     print(predictedName)
 
-    os.system("python3 unlock.py " + predictedName) # call unlock.py
+    #os.system("python3 unlock.py " + predictedName) # call unlock.py
 
-    os.remove(newData) # clear file for each iteration
+    #os.remove(newData) # clear file for each iteration
 
 if __name__ == "__main__":
     asyncio.run(main())
