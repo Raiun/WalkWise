@@ -70,7 +70,7 @@ export default function orders() {
                 Users
               </Typography>
               <Typography color="primary" fontWeight={500} fontSize={12}>
-                Profile
+                Permissions
               </Typography>
             </Breadcrumbs>
           </Box>

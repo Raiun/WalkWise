@@ -243,13 +243,13 @@ export default function Sidebar() {
           sx={{ boxShadow: 'none' }}
         >
           <Stack direction="row" justifyContent="space-between" alignItems="center">
-            <Typography level="title-sm">Used space</Typography>
+            <Typography level="title-sm">Used Member Capacity</Typography>
             <IconButton size="sm">
               <CloseRoundedIcon />
             </IconButton>
           </Stack>
           <Typography level="body-xs">
-            Your team has used 80% of your available space. Need more?
+            Your team has used 80% of your available member capacity. Want to add more members?
           </Typography>
           <LinearProgress variant="outlined" value={80} determinate sx={{ my: 1 }} />
           <Button size="sm" variant="solid">
