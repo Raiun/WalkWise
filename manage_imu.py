@@ -5,9 +5,10 @@ import torch
 import asyncio
 import os
 import numpy as np
+import subprocess
 
 arduinoName = "Nate's Nano"
-newData = "data/hersh_23.txt"
+newData = "data/nate_26.txt"
 collectionTime = 7
 
 async def main():
@@ -71,8 +72,8 @@ async def main():
 
 
     print(predictedName)
-
-    os.system(f"python3 unlock.py '{predictedName}'") # call unlock.py
+    #predictedName = "Nate Webster"
+    subprocess.run(["python3", "unlock.py", f"{predictedName}"]) # call unlock.py
 
     #os.remove(newData) # clear file for each iteration
 

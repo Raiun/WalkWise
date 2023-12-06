@@ -33,11 +33,11 @@ async def main():
         first_lock = locks[0]
 
         if args.user in valid_users:
-            #await first_lock.async_set_locked(False)
+            await first_lock.async_set_locked(False)
             status = "Unlock"
         else:
             print("Unrecognized User/user does not have permission! DOOR WILL LOCK!")
-            #await first_lock.async_set_locked(True)
+            await first_lock.async_set_locked(True)
             status = "Lock"
         url = f"http://127.0.0.1:8000/addUnlock/{args.user}/{status}"
         response = requests.put(url)

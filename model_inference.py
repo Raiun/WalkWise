@@ -55,7 +55,7 @@ def preprocess_data(sample, crop_size, noise_level):
 def predict(model, sample):
     # Define preprocessing parameters
     crop_size = 400  # Example crop size, adjust to your needs
-    noise_level = 0.01  # Example noise level
+    noise_level = 0.05  # Example noise level
     
     with torch.no_grad():  # Ensure gradients are not computed in inference mode
         preprocessed_sample = preprocess_data(sample, crop_size, noise_level)
