@@ -5,7 +5,6 @@ import torch
 import asyncio
 import os
 import numpy as np
-import unlock
 
 arduinoName = "Nate's Nano"
 newData = "nate_data_10.txt"
