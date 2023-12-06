@@ -64,31 +64,31 @@ const HistoryTable = () => {
       let statusSymbol;
 
       if (status == "Unlock") {
-        statusSymbol = <CheckRoundedIcon></CheckRoundedIcon>
+        statusSymbol = <CheckRoundedIcon fontSize="inherit" color="success" sx={{margin: "0 5px"}}></CheckRoundedIcon>
       }
       else if (status == "Lock") {
-        statusSymbol = <BlockIcon></BlockIcon>
+        statusSymbol = <BlockIcon fontSize="inherit" color="danger" sx={{margin: "0 5px"}}></BlockIcon>
       }
       else {
-        statusSymbol = <AutorenewRoundedIcon></AutorenewRoundedIcon>
+        statusSymbol = <AutorenewRoundedIcon fontSize="inherit" color="error" sx={{margin: "0 5px"}}></AutorenewRoundedIcon>
       }
 
       return statusSymbol
     }
 
     return (
-      <Sheet variant="soft" sx={{ pt: 1, borderRadius: 'sm', fontWeight: "bold" }}>
+      <Sheet variant="soft" sx={{ pt: 1, borderRadius: 'sm' }}>
           <Table
             hoverRow
           >
           <thead>
-          <tr>
+          <tr style={{fontSize: "20px", fontWeight: "bold"}}>
               <th>Name</th>
               <th>Date</th>
               <th>Status</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody style={{fontSize: "20px"}}>
             {data.map((row) => (
                 <tr key={row["name"]}>
                 <td>{row["name"]}</td>

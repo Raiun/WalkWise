@@ -17,9 +17,6 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
 import Sidebar from "../components/Sidebar";
-import OrderTable from "../components/OrderTable";
-import OrderList from "../components/OrderList";
-
 import animation from "../public/walking.gif"
 
 export default function Home() {
@@ -86,11 +83,12 @@ export default function Home() {
             </Breadcrumbs>
           </Box>
           <Card>
-            <h1>Welcome to WalkWise!</h1>
-            <p>WalkWise utilizes Arduino streamed IMU data to recognize and identify users by
-              their stride patterns to unlock smart locked doors automatically.</p>
-            <img style={{margin: "auto", width: "500px", height: "400px"}} src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/72f02440701089.57894e458a58b.gif"></img>
-            {data[0] ? <p>{data[0]["name"]}</p> : <p></p>}
+            <Box sx={{margin: "auto", textAlign: "center", width: "50%"}}>
+                <Typography level="h1" sx={{mb: 1}}>Welcome to WalkWise!</Typography>
+                <Typography sx={{mb: 5}}>WalkWise utilizes Arduino streamed IMU data to recognize and identify users by
+                their stride patterns to unlock smart locked doors automatically.</Typography>
+                <img style={{width: "500px", height: "400px"}} src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/72f02440701089.57894e458a58b.gif"></img>
+            </Box>
           </Card>
         </Box>
       </Box>

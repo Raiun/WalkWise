@@ -46,7 +46,6 @@ export default function Home() {
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-
   };
 
   return (
@@ -54,7 +53,7 @@ export default function Home() {
       <CssBaseline />
       <Box sx={{ width: "100%", display: "flex", flexWrap: "wrap" }}>
           {data.map((row) => (
-              <Card sx={{width: "500px", margin: "0 10px"}}>
+              <Card sx={{width: "400px", margin: "10px 10px"}}>
                 <ListItemDecorator>
                   <Avatar variant="outlined" />
                 </ListItemDecorator>
@@ -63,10 +62,11 @@ export default function Home() {
                   <Typography level="body-sm" noWrap>
                     Auto-Unlock: {row["permitted"] ? "True" : "False"}
                     <Button 
-                      sx={{marginLeft: "60px"}}
+                      sx={{marginLeft: "80px"}}
                       onClick={() => updatePermissions(row["name"])}
+                      color={row["permitted"] ? "danger" : "success"}
                     >
-                      {row["permitted"] ? "Enable Auto-Unlock" : "Disable Auto-Unlock"}
+                      {row["permitted"] ? "Disable Auto-Unlock" : "Enable Auto-Unlock"}
                     </Button>
                   </Typography>
                 </ListItemContent>

@@ -200,29 +200,12 @@ export default function Sidebar() {
               )}
             >
               <List sx={{ gap: 0.5 }}>
-                <ListItem sx={{ mt: 0.5 }}>
-                  <ListItemButton
-                    role="menuitem"
-                    component="a"
-                    href="\users?profile"
-                  >
-                    My Profile
-                  </ListItemButton>
-                </ListItem>
-                <ListItem>
-                  <ListItemButton
-                    role="menuitem"
-                    component="a"
-                    href="\users?newUser"
-                  >
-                    Add New User</ListItemButton>
-                </ListItem>
                 <ListItem
                   role="menuitem"
                   component="a"
                   href="\users?roles"
                 >
-                  <ListItemButton>Roles & Permissions</ListItemButton>
+                  <ListItemButton>Permissions</ListItemButton>
                 </ListItem>
               </List>
             </Toggler>

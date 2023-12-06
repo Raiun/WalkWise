@@ -15,7 +15,7 @@ async def main():
     await imu.collect_data(arduinoName,newData,collectionTime)
     
     model = torch.load("1D_CNN_model.pth")
-    name_dict = {0: "hersh", 1: "nate", 2: "ryan"}
+    name_dict = {0: "Hersh Gupta", 1: "Nate Webster", 2: "Ryan Man"}
     model.eval()  # Set the model to evaluation mode
     sample = np.loadtxt(
             newData, delimiter=","
