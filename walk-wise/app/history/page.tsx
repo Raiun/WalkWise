@@ -15,10 +15,9 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
 import Sidebar from "../../components/Sidebar";
-import OrderTable from "../../components/OrderTable";
-import OrderList from "../../components/OrderList";
+import HistoryTable from "../../components/HistoryTable";
 
-export default function orders() {
+export default function history() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -95,8 +94,7 @@ export default function orders() {
                   Download PDF
                 </Button>
               </Box>
-              <OrderTable />
-              <OrderList />
+              <HistoryTable />
         </Box>
       </Box>
     </CssVarsProvider>

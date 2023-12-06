@@ -15,8 +15,7 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 
 //import useScript from "./useScript";
 import Sidebar from "../../components/Sidebar";
-import OrderTable from "../../components/OrderTable";
-import OrderList from "../../components/OrderList";
+import EditUsers from "../../components/EditUsers";
 
 export default function orders() {
   return (
@@ -75,6 +74,7 @@ export default function orders() {
               </Typography>
             </Breadcrumbs>
           </Box>
+          <EditUsers></EditUsers>
         </Box>
       </Box>
     </CssVarsProvider>

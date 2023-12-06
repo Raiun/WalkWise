@@ -26,6 +26,11 @@ def root():
     cursor = authorized_table.find({})
     return dumps(cursor)
 
+@app.get("/allUnlocks")
+def getAllUnlocks():
+    cursor = unlocks_table.find({})
+    return dumps(cursor)
+
 @app.put("/addUnlock/{name}/{status}")
 def addUnlock(name: str, status: str):
     current_timestamp = datetime.datetime.now()
@@ -34,7 +39,7 @@ def addUnlock(name: str, status: str):
     put_data = jsonable_encoder(data)
     try:
         unlocks_table.insert_one(data)
-        return put_data
+        return dumps(put_data)
     except Exception as e:
         print(e)
     return e
@@ -47,7 +52,7 @@ def updateAuthorizations(name: str):
         result = authorized_table.update_one({"name": name},
             {'$set': {"permitted": not current_authorization}})
         if result.modified_count > 0:
-            return "Sucessfully updated permission"
+            return authorized_table.find_one({"name": name})
         else:
             return "Failed to update authorization"
     except Exception as e:

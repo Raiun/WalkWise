@@ -178,7 +178,7 @@ export default function Sidebar() {
               <HistoryIcon />
               <ListItemContent
                 component="a"
-                href="\orders"
+                href="\history"
               >
                 <Typography level="title-sm">History</Typography>
               </ListItemContent>
