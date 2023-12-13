@@ -1,6 +1,7 @@
+"use client"
 import Image from "next/image"
 //import styles from "./page.module.css"
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
@@ -8,6 +9,7 @@ import Button from "@mui/joy/Button";
 import Breadcrumbs from "@mui/joy/Breadcrumbs";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
+import Card from "@mui/joy/Card";
 
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
@@ -17,8 +19,12 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import Sidebar from "../../components/Sidebar";
 import OrderTable from "../../components/OrderTable";
 import OrderList from "../../components/OrderList";
+import { Sheet } from "@mui/joy";
 
 export default function dashboard() {
+  const [fileContent, setFileContent] = useState<string>("");
+  const [pageNum, setPageNum] = useState(1);
+
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -69,6 +75,14 @@ export default function dashboard() {
               </Link>
             </Breadcrumbs>
           </Box>
+          <Sheet>
+            <Button
+              color="primary"
+              size="lg"
+            >
+              Start IMU Stream
+            </Button>
+          </Sheet>
         </Box>
       </Box>
     </CssVarsProvider>
