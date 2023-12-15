@@ -34,7 +34,7 @@ export default function Home() {
     return () => {
       // Cleanup logic here (if needed)
     };
-  }, []);
+  }, [data]);
 
   const updatePermissions = async (user: string) => {
     try {

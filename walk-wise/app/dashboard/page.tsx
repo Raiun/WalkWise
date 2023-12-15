@@ -19,12 +19,10 @@ import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 import Sidebar from "../../components/Sidebar";
 import OrderTable from "../../components/OrderTable";
 import OrderList from "../../components/OrderList";
+import DataCard from "../../components/DataCard";
 import { Sheet } from "@mui/joy";
 
 export default function dashboard() {
-  const [fileContent, setFileContent] = useState<string>("");
-  const [pageNum, setPageNum] = useState(1);
-
   const startScript = async () => {
     try {
       const response = await fetch("http://127.0.0.1:8000/connectArduino");
@@ -88,9 +86,11 @@ export default function dashboard() {
               color="primary"
               size="lg"
               onClick={startScript}
+              sx={{margin: "2.5% 42.5%"}}
             >
               Start IMU Stream
             </Button>
+            <DataCard></DataCard>
           </Sheet>
         </Box>
       </Box>
