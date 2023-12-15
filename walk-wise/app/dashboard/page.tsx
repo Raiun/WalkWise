@@ -25,6 +25,14 @@ export default function dashboard() {
   const [fileContent, setFileContent] = useState<string>("");
   const [pageNum, setPageNum] = useState(1);
 
+  const startScript = async () => {
+    try {
+      const response = await fetch("http://127.0.0.1:8000/connectArduino");
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
@@ -79,6 +87,7 @@ export default function dashboard() {
             <Button
               color="primary"
               size="lg"
+              onClick={startScript}
             >
               Start IMU Stream
             </Button>

@@ -5,10 +5,11 @@ import torch
 import asyncio
 import os
 import numpy as np
+import subprocess
 
 arduinoName = "Nate's Nano"
 newData = "data/hersh_23.txt"
-collectionTime = 7
+collectionTime = 8
 
 async def main():
     await imu.collect_data(arduinoName,newData,collectionTime)
@@ -71,8 +72,8 @@ async def main():
 
 
     print(predictedName)
-
-    os.system(f"python3 unlock.py '{predictedName}'") # call unlock.py
+    result = subprocess.run(["python", "./unlock.py", f"{predictedName}"], check=True)
+    return result;
 
     #os.remove(newData) # clear file for each iteration
 

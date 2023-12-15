@@ -1,5 +1,6 @@
 import datetime
 import json
+import subprocess
 from fastapi import FastAPI
 from db import test, unlocks_table, authorized_table
 from bson.json_util import dumps
@@ -30,6 +31,15 @@ def root():
 def getAllUnlocks():
     cursor = unlocks_table.find({})
     return dumps(cursor)
+
+@app.get("/connectArduino")
+def getAllUnlocks():
+    status = "sucess"
+    try: 
+        subprocess.run(["python", "../manage_imu.py"])
+    except Exception as e:
+        status = e
+    return {"status": status}
 
 @app.put("/addUnlock/{name}/{status}")
 def addUnlock(name: str, status: str):
