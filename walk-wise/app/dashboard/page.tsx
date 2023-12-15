@@ -81,17 +81,17 @@ export default function dashboard() {
               </Link>
             </Breadcrumbs>
           </Box>
-          <Sheet>
+          <Card>
             <Button
               color="primary"
               size="lg"
               onClick={startScript}
-              sx={{margin: "2.5% 42.5%"}}
+              sx={{margin: "1% 42.5%"}}
             >
               Start IMU Stream
             </Button>
             <DataCard></DataCard>
-          </Sheet>
+          </Card>
         </Box>
       </Box>
     </CssVarsProvider>

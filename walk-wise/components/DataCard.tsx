@@ -61,13 +61,13 @@ const DataCard = () => {
 
     return (
       <Box>
-        <Box sx={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Box sx={{pb: 1, display: "flex", justifyContent: "center", alignItems: "center"}}>
           <Button onClick={() => (pageNum > 1) ? setPageNum(pageNum - 1) : ""} variant="plain">Prev Page</Button>
           <Button disabled variant="plain">Current Page: {pageNum}</Button>
           <Button onClick={() => setPageNum(pageNum + 1)} variant="plain">Next Page</Button>
         </Box>
-        <Sheet variant="soft" sx={{ pt: 1, borderRadius: "sm" }}>
-          {data}
+        <Sheet variant="soft" sx={{ pt: 1, pl: 1, borderRadius: "sm" }}>
+          <Typography>{data}</Typography>
         </Sheet>
       </Box>
     )
